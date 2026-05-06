@@ -1,0 +1,26 @@
+# Зависимости
+node_modules/
+bun.lock
+package-lock.json
+
+# Резервные копии
+*.backup
+*.backup.*
+
+# Локальные настройки
+.env
+.env.*
+
+# Логи
+*.log
+logs/
+
+# Временные файлы
+*.tmp
+*.swp
+*~
+.DS_Store
+
+# IDE
+.vscode/settings.json
+.idea/
