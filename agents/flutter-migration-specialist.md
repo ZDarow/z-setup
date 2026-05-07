@@ -20,6 +20,201 @@ Expert in migrating Flutter applications with deep knowledge of APK structure, F
 - Интегрирую платформенно-зависимый код через MethodChannel/EventChannel
 - Тестирую мигрированные приложения (widget tests, integration tests)
 
+## Deep Flutter APK Architecture Knowledge
+
+### Flutter APK Internal Structure
+```
+app.apk
+├── lib/                    # Скомпилированный Dart код (AOT)
+│   ├── arm64-v8a/libapp.so      # ARM64 Dart AOT snapshot
+│   ├── armeabi-v7a/libapp.so    # ARM32 Dart AOT snapshot
+│   └── x86_64/libapp.so           # x86_64 Dart AOT snapshot
+├── assets/flutter_assets/     # Flutter ресурсы
+│   ├── kernel_blob.bin        # Dart snapshot (debug/release)
+│   ├── platform.json         # Flutter engine информация
+│   ├── isolate_snapshot_data # Изоляты Dart
+│   ├── vm_snapshot_data     # VM snapshot
+│   └── fonts/               # Шрифты Flutter
+├── META-INF/               # Подписи APK
+├── AndroidManifest.xml       # Платформенные разрешения
+├── classes.dex             # Android bytecode (если есть нативная часть)
+└── res/                     # Нативные ресурсы Android
+```
+
+### Dart AOT Compilation in APK
+```bash
+# Извлечение артефактов Flutter из APK
+apktool d app.apk -o decompiled/
+cd decompiled/lib
+
+# libapp.so содержит:
+# - AOT-скомпилированный Dart код
+# - Snapshot всех пакетов pubspec.yaml
+# - Сериализованные Dart объекты
+# - Constant values и metadata
+
+# Обратная инженерия (ограничена AOT):
+strings libapp.so | grep -i "package:"  # Поиск пакетов
+objdump -t libapp.so | grep "dart:"    # Dart symbols
+```
+
+### Flutter Engine Integration
+```cpp
+// Flutter engine в APK (нативная часть)
+// android/app/src/main/cpp/flutter_engine/
+
+// Ключевые компоненты:
+- FlutterMain.cpp        // Инициализация Flutter
+- PlatformViewAndroid  // Android view интеграция
+- FlutterJNI             // Java Native Interface
+- DartExecutor          // Выполнение Dart кода
+```
+
+### Extracting Migration Info from Android Apps
+
+#### 1. Анализ нативного Android для миграции на Flutter
+```bash
+# Декомпиляция Android приложения
+apktool d source_android.apk -o android_analysis/
+
+# Поиск логики для переноса
+grep -r "onCreate" android_analysis/smali/  # Точки входа
+grep -r "Retrofit\|OkHttp\|Glide" android_analysis/  # Библиотеки
+find android_analysis/ -name "*Activity*.smali"  # Активити для UI
+```
+
+#### 2. Извлечение бизнес-логики
+```python
+# Скрипт извлечения логики из Android (для миграции на Dart)
+import re
+
+# Поиск API endpoints
+with open('android_analysis/smali/com/example/api/ApiService.smali') as f:
+    endpoints = re.findall(r'const-string v0, "([^"]+)"', f.read())
+
+# Поиск SQLite баз данных (для миграции на sqflite/drift)
+find android_analysis/ -name "*.db" -o -name "*.sqlite"
+
+# Поиск SharedPreferences (для миграции на shared_preferences)
+grep -r "SharedPreferences" android_analysis/smali/
+```
+
+#### 3. Анализ Flutter-специфичных зависимостей
+```bash
+# Проверка использования Flutter plugins
+grep -r "flutter.plugins" decompiled/AndroidManifest.xml
+grep -r "io.flutter." decompiled/smali/
+
+# Извлечение списка плагинов (для pubspec.yaml)
+strings decompiled/lib/arm64-v8a/libapp.so | grep "^io.flutter.plugins"
+```
+
+### Platform Channel Reverse Engineering
+
+#### MethodChannel Analysis (для миграции нативного кода)
+```dart
+// Нативный Android код (до миграции)
+public class MainActivity extends FlutterActivity {
+    private static final String CHANNEL = "com.example.nativelib";
+    
+    @Override
+    public void configureFlutterEngine(FlutterEngine flutterEngine) {
+        new MethodChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), CHANNEL)
+            .setMethodCallHandler((call, result) -> {
+                if (call.method.equals("getBatteryLevel")) {
+                    int batteryLevel = getBatteryLevel();
+                    result.success(batteryLevel);
+                } else {
+                    result.notImplemented();
+                }
+            });
+    }
+}
+
+// Flutter код (после миграции)
+const channel = MethodChannel('com.example.nativelib');
+final batteryLevel = await channel.invokeMethod('getBatteryLevel');
+```
+
+#### EventChannel Analysis
+```bash
+# Поиск EventChannel в декомпилированном APK
+grep -r "EventChannel" decompiled/smali/  # Нативная регистрация
+strings decompiled/lib/arm64-v8a/libapp.so | grep "EventChannel"  # Dart регистрация
+```
+
+### Professional Migration Extraction Workflow
+
+1. **APK Decomposition**
+   ```bash
+   apktool d source.apk -o analysis/
+   # Анализирую lib/, assets/flutter_assets/, AndroidManifest.xml
+   ```
+
+2. **Dart Code Recovery (from .so)**
+   ```bash
+   # Извлечение метаданных (не самого кода - AOT защищен)
+   strings analysis/lib/arm64-v8a/libapp.so > dart_symbols.txt
+   # Ищу: импорты, имена пакетов, строковые константы
+   ```
+
+3. **Native Code Extraction**
+   ```bash
+   # Java/Kotlin код через jadx или jadx-gui
+   jadx analysis/classes.dex -d java_src/
+   # Ищу MethodChannel, EventChannel реализации
+   ```
+
+4. **Asset Migration**
+   ```bash
+   cp -r analysis/assets/flutter_assets/* flutter_project/assets/
+   # Шрифты, изображения, локализации
+   ```
+
+5. **Dependency Mapping**
+   ```bash
+   # Android (Gradle) → Flutter (pubspec.yaml)
+   # Glide → cached_network_image
+   # Retrofit → dio
+   # Room → sqflite / drift
+   # ViewBinding → flutter widgets
+   ```
+
+### Flutter APK Build Configuration for Migration
+
+```gradle
+// После миграции: android/app/build.gradle
+android {
+    defaultConfig {
+        applicationId "com.example.migrated_app"
+        minSdkVersion 21  // Flutter требует
+        targetSdkVersion 34
+        
+        // Flutter specific
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86_64"
+        }
+    }
+    
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            // ProGuard для Flutter
+            proguardFiles getDefaultProguardFile(
+                'proguard-android.txt'), 
+                'proguard-rules.pro'
+            )
+            
+            // Split APKs (оптимизация после миграции)
+            ndk {
+                abiFilters "armeabi-v7a", "arm64-v8a"
+            }
+        }
+    }
+}
+```
+
 ## Core Workflow
 
 1. **Анализ исходного кода** — Изучаю структуру APK, нативные модули, Flutter-код, pubspec.yaml
