@@ -15,6 +15,7 @@ Applies to all sessions. Local `AGENTS.md` overrides.
 - **VS Code:** When starting work on a project, proactively use `vscode-setup` skill to analyze and configure extensions.
 - **Code:** No comments unless requested. Match existing style. Avoid over-engineering.
 - **Security:** Sanitize outputs. Never log/commit secrets.
+- **GitHub:** Without explicit user instruction or confirmation, uploading to GitHub is prohibited.
 
 ## WORKFLOW
 - **Verify first:** Run tests/lint/typecheck before claiming done.
