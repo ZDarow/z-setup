@@ -1,6 +1,6 @@
 ---
 name: supabase
-description: Database, auth, and backend expertise for Supabase operations in [PROJECT_NAME]
+description: "Экспертиза по Supabase: базы данных, аутентификация, бэкенд, real-time подписки, Row Level Security"
 last_updated: 2025-12-21
 ---
 
