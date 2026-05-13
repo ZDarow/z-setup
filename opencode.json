@@ -1,35 +1,154 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  // ============================================
+  // Compaction — автоматическое сжатие контекста
+  // ============================================
   "compaction": {
     "auto": true,
     "prune": true,
+    "reserved": 10000,
     "tail_turns": 2
   },
-  "permission": "allow",
+  // ============================================
+  // Permissions — глобальные разрешения инструментов
+  // ============================================
+  "permission": {
+    "read": "allow",
+    "edit": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "bash": "ask",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "skill": "allow",
+    "question": "allow",
+    "todowrite": "allow"
+  },
+  // ============================================
+  // Plugins — npm-пакеты для расширения функционала
+  // ============================================
+  "plugin": [
+    "opencode-notifier",
+    "opencode-supermemory",
+    "opencode-shell-strategy",
+    "opencode-wakatime",
+    "opencode-dynamic-context-pruning"
+  ],
+  // ============================================
+  // MCP Servers — интеграция с внешними инструментами
+  // ============================================
   "mcp": {
     "everything": {
       "type": "local",
       "command": ["npx", "-y", "@modelcontextprotocol/server-everything"]
+    },
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "/"]
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "gh_grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app"
     }
   },
+  // ============================================
+  // Skills — пути к навыкам
+  // ============================================
   "skills": {
     "paths": ["/home/mi/.config/opencode/skills"]
   },
+  // ============================================
+  // Instructions — инструкции для модели
+  // ============================================
   "instructions": [
     ".opencode/AGENTS.md",
+    "AGENTS.md",
     "README.md"
   ],
+  // ============================================
+  // LSP — Language Server Protocol для подсветки кода
+  // ============================================
+  "lsp": {
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"]
+    },
+    "go": {
+      "command": "gopls"
+    },
+    "python": {
+      "command": "basedpyright-langserver",
+      "args": ["--stdio"]
+    }
+  },
+  // ============================================
+  // Formatters — автоформатирование кода
+  // ============================================
+  "formatter": true,
+  // ============================================
+  // Watcher — исключения для отслеживания файлов
+  // ============================================
+  "watcher": {
+    "ignore": ["node_modules/**", "dist/**", ".git/**", "build/**", "target/**"]
+  },
+  // ============================================
+  // Agents — специализированные агенты
+  // ============================================
   "agent": {
     "coder": {
       "mode": "subagent",
       "steps": 50,
       "temperature": 0.2,
-      "description": "Coding specialist"
+      "description": "Универсальный разработчик — пишет код, рефакторит, фиксит баги"
     },
     "task": {
       "mode": "subagent",
       "steps": 30,
-      "temperature": 0.4
+      "temperature": 0.4,
+      "description": "Выполнение многошаговых задач в фоне"
+    },
+    "review": {
+      "mode": "subagent",
+      "temperature": 0.1,
+      "description": "Ревью кода: безопасность, производительность, архитектура",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+        "webfetch": "allow"
+      }
+    },
+    "plan": {
+      "mode": "primary",
+      "temperature": 0.1,
+      "description": "Анализ и планирование без изменений кода",
+      "permission": {
+        "edit": "deny",
+        "bash": "ask",
+        "webfetch": "allow",
+        "websearch": "allow"
+      }
+    },
+    "debugger": {
+      "mode": "subagent",
+      "temperature": 0.1,
+      "description": "Отладка: анализ ошибок, стектрейсов, поиск причин",
+      "permission": {
+        "edit": "ask",
+        "bash": "allow"
+      }
     }
-  }
+  },
+  // ============================================
+  // Sharing — автошаринг сессий (manual по умолчанию)
+  // ============================================
+  "share": "manual",
+  // ============================================
+  // Autoupdate — автообновление OpenCode
+  // ============================================
+  "autoupdate": "notify"
 }
