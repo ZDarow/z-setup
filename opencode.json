@@ -141,6 +141,59 @@
         "edit": "ask",
         "bash": "allow"
       }
+    },
+    "fs-manager": {
+      "mode": "subagent",
+      "temperature": 0.1,
+      "description": "Файловая система: управление файлами, правами, симлинками, поиск дубликатов",
+      "permission": {
+        "bash": "allow",
+        "edit": "allow",
+        "glob": "allow",
+        "grep": "allow"
+      }
+    },
+    "doc-scribe": {
+      "mode": "subagent",
+      "temperature": 0.2,
+      "description": "Документация: README, API-гайды, ADR, changelog",
+      "permission": {
+        "bash": "deny",
+        "edit": "allow",
+        "write": "allow",
+        "read": "allow"
+      }
+    },
+    "sys-inspector": {
+      "mode": "subagent",
+      "temperature": 0.1,
+      "description": "Инспектор системы: CPU, память, диск, сеть, логи, health check",
+      "permission": {
+        "bash": "allow",
+        "edit": "deny",
+        "read": "allow"
+      }
+    },
+    "log-analyzer": {
+      "mode": "subagent",
+      "temperature": 0.1,
+      "description": "Анализ логов: парсинг, агрегация, поиск паттернов, отчёты",
+      "permission": {
+        "bash": "allow",
+        "edit": "deny",
+        "read": "allow",
+        "grep": "allow"
+      }
+    },
+    "backup-manager": {
+      "mode": "subagent",
+      "temperature": 0.1,
+      "description": "Бэкапы: rsync, tar, ротация, снапшоты, восстановление",
+      "permission": {
+        "bash": "allow",
+        "edit": "allow",
+        "read": "allow"
+      }
     }
   },
   // ============================================

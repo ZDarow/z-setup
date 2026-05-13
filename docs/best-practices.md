@@ -206,3 +206,24 @@ OPENCODE_EXPERIMENTAL_LSP_TOOL=true opencode
 - GitHub: https://github.com/anomalyco/opencode
 - Discord: https://opencode.ai/discord
 - Awesome OpenCode: https://github.com/awesome-opencode/awesome-opencode
+
+## 11. Агенты для работы с файловой системой и документацией
+
+Проект включает специализированных агентов для Linux:
+
+| Агент | Назначение | Права |
+|-------|-----------|-------|
+| `@fs-manager` | Управление файлами, правами, симлинками, поиск дубликатов | bash+edit |
+| `@doc-scribe` | Документация: README, API-гайды, ADR, changelog | read-only fs |
+| `@sys-inspector` | Health check: CPU, RAM, диск, сеть, процессы | bash+read-only |
+| `@log-analyzer` | Анализ логов: парсинг, агрегация, отчёты | bash+read-only |
+| `@backup-manager` | Бэкапы: rsync, tar, ротация, снапшоты | bash+edit |
+
+Примеры вызова:
+```
+@fs-manager Найди битые симлинки в проекте
+@doc-scribe Создай README по коду в src/
+@sys-inspector Проверь здоровье системы
+@log-analyzer Найди топ-5 ошибок за сегодня
+@backup-manager Сделай бэкап проекта
+```
