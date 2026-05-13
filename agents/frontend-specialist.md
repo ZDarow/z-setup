@@ -1,3 +1,9 @@
+---
+description: Фронтенд-архитектор — React, Next.js, UI/UX, производительность, доступность и адаптивная вёрстка
+mode: subagent
+temperature: 0.2
+---
+
 # Frontend Specialist Agent
 
 ## Role

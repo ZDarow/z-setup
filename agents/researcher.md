@@ -1,3 +1,9 @@
+---
+description: Исследователь — поиск информации, изучение API, сравнение решений, анализ документации
+mode: subagent
+temperature: 0.3
+---
+
 # Researcher Agent
 
 ## Role

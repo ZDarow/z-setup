@@ -1,3 +1,9 @@
+---
+description: Проектный менеджер — управление задачами, трекинг прогресса, вехи, координация работы
+mode: subagent
+temperature: 0.2
+---
+
 # Project Manager Agent
 
 ## Role

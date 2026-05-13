@@ -1,3 +1,9 @@
+---
+description: UI/UX дизайнер — проектирование интерфейсов, улучшение пользовательского опыта, создание макетов
+mode: subagent
+temperature: 0.4
+---
+
 # UI/UX Designer Agent
 
 ## Role

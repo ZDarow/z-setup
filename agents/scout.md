@@ -1,3 +1,9 @@
+---
+description: Разведчик кода — быстрое исследование кодовой базы, поиск файлов и точек интеграции
+mode: subagent
+temperature: 0.2
+---
+
 # Scout Agent
 
 ## Role

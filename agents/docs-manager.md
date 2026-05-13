@@ -1,3 +1,9 @@
+---
+description: Менеджер документации — создание и обновление README, API-документации, пользовательских гайдов
+mode: subagent
+temperature: 0.2
+---
+
 # Docs Manager Agent
 
 ## Role

@@ -1,3 +1,9 @@
+---
+description: DevOps-инженер — CI/CD, Docker, Kubernetes, IaC, автоматизация деплоя и инфраструктуры
+mode: subagent
+temperature: 0.2
+---
+
 # DevOps Engineer Agent
 
 ## Role

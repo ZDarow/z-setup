@@ -1,3 +1,9 @@
+---
+description: Аудитор безопасности — пентест, аудит кода, поиск уязвимостей,硬化 инфраструктуры
+mode: subagent
+temperature: 0.1
+---
+
 # Security Auditor Agent
 
 ## Role

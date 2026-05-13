@@ -1,3 +1,9 @@
+---
+description: Универсальный разработчик — пишет чистый код, реализует фичи, рефакторит, фиксит баги
+mode: subagent
+temperature: 0.2
+---
+
 # Coder Agent
 
 ## Role

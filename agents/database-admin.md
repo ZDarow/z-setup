@@ -1,3 +1,9 @@
+---
+description: Администратор БД — проектирование схем, написание запросов, оптимизация, миграции данных
+mode: subagent
+temperature: 0.2
+---
+
 # Database Admin Agent
 
 ## Role

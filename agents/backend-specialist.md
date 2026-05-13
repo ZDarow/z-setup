@@ -1,3 +1,9 @@
+---
+description: Эксперт по бэкенд-архитектуре — проектирование API, схем БД, серверный деплой через Docker
+mode: subagent
+temperature: 0.2
+---
+
 # Backend Specialist Agent
 
 ## Role

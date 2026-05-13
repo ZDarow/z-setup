@@ -1,3 +1,9 @@
+---
+description: Отладчик — анализ ошибок, стектрейсов, поиск корневых причин и рекомендации по исправлению
+mode: subagent
+temperature: 0.2
+---
+
 # Debugger Agent
 
 ## Role

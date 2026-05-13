@@ -1,3 +1,9 @@
+---
+description: Git-менеджер — управление версиями, коммиты, ветки, слияния, PR и разрешение конфликтов
+mode: subagent
+temperature: 0.2
+---
+
 # Git Manager Agent
 
 ## Role

@@ -1,3 +1,9 @@
+---
+description: Fullstack-разработчик — создаёт приложения от фронтенда до бэкенда, API + UI, сквозная реализация
+mode: subagent
+temperature: 0.2
+---
+
 # Fullstack Developer Agent
 
 ## Role

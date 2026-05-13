@@ -1,3 +1,9 @@
+---
+description: Тестировщик — написание unit, интеграционных и E2E тестов, проверка качества кода
+mode: subagent
+temperature: 0.2
+---
+
 # Tester Agent
 
 ## Role

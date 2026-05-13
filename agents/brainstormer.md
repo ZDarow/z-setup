@@ -1,3 +1,9 @@
+---
+description: Генератор креативных идей и решений — мозговой штурм, поиск нестандартных подходов
+mode: subagent
+temperature: 0.6
+---
+
 # Brainstormer Agent
 
 ## Role

@@ -1,3 +1,9 @@
+---
+description: Ревьюер кода — проверка качества, безопасности, производительности и архитектуры кода
+mode: subagent
+temperature: 0.2
+---
+
 # Reviewer Agent
 
 ## Role
