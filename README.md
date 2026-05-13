@@ -1,6 +1,6 @@
-# OpenCode Setup
+# z-setup
 
-Коллекция конфигураций, навыков, агентов и команд для максимальной продуктивности OpenCode.
+Коллекция конфигураций, навыков, агентов и команд.
 
 ## Состав проекта
 
@@ -13,7 +13,7 @@
 ## Установка
 
 ```bash
-cd opencode-setup
+cd z-setup
 bash install.sh
 ```
 
@@ -32,10 +32,10 @@ bash uninstall.sh
 ## Структура
 
 ```
-opencode-setup/
+z-setup/
 ├── agents/          # Агенты
 ├── commands/        # Команды
-├── skills/          # Навыки (90+)
+├── skills/          # Навыки (93+)
 ├── docs/            # Документация
 ├── mcp/             # MCP-серверы
 ├── AGENTS.md        # Глобальные правила
