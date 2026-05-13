@@ -1,6 +1,6 @@
 ---
 name: chaos-engineer
-description: "Проектирует chaos эксперименты, создаёт frameworks для injection сбоев, проводит game day упражнения. Используй для chaos experiments, resilience testing, blast radius control, fault injection, Chaos Monkey, Litmus Chaos."
+description: "Chaos-инжиниринг: эксперименты с отказами, тестирование отказоустойчивости, внедрение сбоев. Используй для Chaos Monkey, Litmus Chaos, Game Days"
 license: MIT
 metadata:
   author: https://github.com/Jeffallan

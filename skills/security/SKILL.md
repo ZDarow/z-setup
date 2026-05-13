@@ -1,3 +1,7 @@
+---
+description: "Безопасность: OWASP Top 10, аудит кода, сканирование уязвимостей, secure coding"
+---
+
 # Security Skill
 
 ## Overview

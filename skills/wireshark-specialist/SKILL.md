@@ -1,4 +1,6 @@
-# Skill: wireshark-specialist
+---
+description: "Анализ сетевого трафика: Wireshark/tshark, BLE, Bluetooth Classic, GATT, L2CAP, захват и фильтрация"
+---
 
 # Wireshark Specialist — эксперт по захвату и анализу трафика
 

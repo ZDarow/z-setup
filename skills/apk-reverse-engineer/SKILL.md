@@ -1,6 +1,6 @@
 ---
 name: apk-reverse-engineer
-description: "Специалист по декомпиляции APK и анализу Android-приложений, с фокусом на поиск Bluetooth-соединений (BLE, Classic Bluetooth). Используй для reverse engineering Android apps, анализа сетевого трафика, поиска API endpoints."
+description: "Декомпиляция APK и анализ Android-приложений с фокусом на Bluetooth (BLE/Classic). Используй для реверс-инжиниринга, анализа трафика, поиска API"
 version: 1.0.0
 tags: [android, apk, reverse-engineering, bluetooth, ble, decompilation, security]
 tools_required: [apktool, jadx, grep, strings, unzip, keytool]

@@ -1,6 +1,6 @@
 ---
 name: docs-gen
-description: Генерация и обновление документации кода (README, JSDoc, комментарии)
+description: "Генерация и обновление документации кода: README, JSDoc, комментарии"
 ---
 
 ## What I do

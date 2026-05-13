@@ -1,3 +1,7 @@
+---
+description: "Мобильная разработка: React Native, Flutter, нативные платформы, best practices"
+---
+
 # Mobile Development Skill
 
 ## Overview

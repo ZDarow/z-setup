@@ -1,6 +1,6 @@
 ---
 name: cli-developer
-description: "Создаёт CLI инструменты, реализует парсинг аргументов, добавляет интерактивные промпты. Используй для parsing flags/subcommands, progress bars, spinners, bash/zsh/fish completion scripts, cross-platform terminal apps."
+description: "Создание CLI-инструментов: парсинг аргументов, интерактивные промпты, прогресс-бары. Используй для кроссплатформенных терминальных приложений"
 license: MIT
 metadata:
   author: https://github.com/Jeffallan

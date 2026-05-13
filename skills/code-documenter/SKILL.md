@@ -1,6 +1,6 @@
 ---
 name: code-documenter
-description: "Генерирует и форматирует техническую документацию — docstrings, OpenAPI/Swagger спецификации, JSDoc аннотации, doc порталы, user guides. Используй для добавления docstrings, создания API документации, building doc sites."
+description: "Генерация техдокументации: docstrings, OpenAPI/Swagger, JSDoc, user guides. Используй для создания API-документации и сайтов документации"
 license: MIT
 metadata:
   author: https://github.com/Jeffallan

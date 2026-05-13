@@ -1,4 +1,6 @@
-# Skill: frida-specialist
+---
+description: "Frida: динамическая инструментация кода на Android/iOS/Linux/Windows — перехват вызовов, трассировка, обход защиты"
+---
 
 # Frida Specialist — динамическая инструментация кода
 

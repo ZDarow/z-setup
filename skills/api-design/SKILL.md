@@ -1,3 +1,7 @@
+---
+description: "Проектирование REST и GraphQL API: именование ресурсов, версионирование, пагинация, обработка ошибок"
+---
+
 # API Design Skill
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: "React паттерны: композиция компонентов, хуки, управление состоянием, best practices"
+---
+
 # React Patterns Skill
 
 ## Overview

@@ -1,6 +1,6 @@
 ---
 name: feature-forge
-description: "Проводит структурированные requirements workshops для создания feature specifications, user stories, EARS функциональных требований. Используй для определения фич, gathering requirements, acceptance criteria, PRD."
+description: "Requirements workshops: создание фич-спецификаций, user stories, критериев приёмки. Используй для сбора требований, определения фич, PRD"
 license: MIT
 metadata:
   author: https://github.com/Jeffallan

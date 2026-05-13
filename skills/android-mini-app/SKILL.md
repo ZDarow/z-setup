@@ -1,4 +1,6 @@
-# Skill: android-mini-app
+---
+description: "Создание быстрых Android мини-приложений: напоминалки, todo-листы, таймеры, заметки, счётчики, трекеры"
+---
 
 # Android Mini-App Developer — быстрые мини-приложения
 

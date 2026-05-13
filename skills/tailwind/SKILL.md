@@ -1,3 +1,7 @@
+---
+description: "Tailwind CSS: утилитарная вёрстка, дизайн-системы, адаптивная вёрстка, настройка темы"
+---
+
 # Tailwind CSS Skill
 
 ## Overview

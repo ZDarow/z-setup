@@ -1,3 +1,7 @@
+---
+description: "Оптимизация производительности: Core Web Vitals, профилирование, кэширование, best practices"
+---
+
 # Performance Optimization Skill
 
 ## Overview

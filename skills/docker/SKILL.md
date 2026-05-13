@@ -1,3 +1,7 @@
+---
+description: "Контейнеризация: Dockerfile, multi-stage сборки, оптимизация образов, Docker Compose, best practices"
+---
+
 # Docker Skill
 
 ## Overview

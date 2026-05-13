@@ -1,3 +1,7 @@
+---
+description: "Next.js: App Router, серверные компоненты, SSR/SSG, маршрутизация, современные паттерны"
+---
+
 # Next.js Best Practices Skill
 
 ## Overview
