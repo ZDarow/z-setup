@@ -11,7 +11,7 @@ echo "=========================="
 mkdir -p "$OPENCEDE_DIR/skills"
 mkdir -p "$OPENCEDE_DIR/agents"
 mkdir -p "$OPENCEDE_DIR/commands"
-mkdir -p "$OPENCEDE_DIR/docs-gemini"
+mkdir -p "$OPENCEDE_DIR/docs"
 
 # Резервное копирование существующих настроек
 if [ -f "$OPENCEDE_DIR/opencode.json" ]; then
@@ -35,7 +35,7 @@ echo "⌨️ Копирование команд (43)..."
 cp -r "$PROJECT_DIR/commands/"* "$OPENCEDE_DIR/commands/"
 
 echo "📚 Копирование документации..."
-cp -r "$PROJECT_DIR/docs-gemini/"* "$OPENCEDE_DIR/docs-gemini/" 2>/dev/null || true
+cp -r "$PROJECT_DIR/docs/"* "$OPENCEDE_DIR/docs/" 2>/dev/null || true
 
 echo "✅ Установка завершена!"
 echo "Перезапустите OpenCode для применения изменений."

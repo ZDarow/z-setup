@@ -23,7 +23,7 @@ echo "⌨️ Удаление команд..."
 rm -rf "$OPENCEDE_DIR/commands/"* 2>/dev/null || true
 
 echo "📚 Удаление документации..."
-rm -rf "$OPENCEDE_DIR/docs-gemini/" 2>/dev/null || true
+rm -rf "$OPENCEDE_DIR/docs/" 2>/dev/null || true
 
 echo "✅ Удаление завершено!"
 echo "Перезапустите OpenCode."
